@@ -1,0 +1,41 @@
+http://toolsqa.com/selenium-webdriver/selenium-grid-how-to-easily-setup-a-hub-and-node/
+
+
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+
+public class Login {
+
+
+
+ public static RemoteWebDriver driver;
+
+
+
+
+
+
+
+
+   // public WebDriver driver;
+
+    @BeforeMethod
+    public void setUp() throws MalformedURLException {
+
+        DesiredCapabilities cap = new DesiredCapabilities().chrome();
+
+        cap.setPlatform(Platform.MAC);
+        cap.setBrowserName("chrome");
+
+        driver = new RemoteWebDriver(new URL("http://172.20.10.11:5555/wd/hub"),cap);
+
+
+
+       // driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "/Users/ahmadkhalili/Desktop/chromedriver");
+        driver.navigate().to("https://bit.ly/2qIXmCA");
